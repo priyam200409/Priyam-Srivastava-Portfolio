@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- =================================================
+         BASIC DOCUMENT META
+    ================================================= -->
+
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+      name="theme-color"
+      content="#F7F8FC"
+    />
+
+    <meta
+      name="color-scheme"
+      content="light dark"
+    />
+
+    <meta
+      name="description"
+      content="Priyam Srivastava — Computer Science student building practical systems across AI/ML, Data Analytics, Generative AI, Agentic AI and Software Engineering."
+    />
+
+    <meta
+      name="author"
+      content="Priyam Srivastava"
+    />
+
+    <meta
+      name="robots"
+      content="index, follow"
+    />
+
+    <meta
+      name="application-name"
+      content="Priyam Srivastava Portfolio"
+    />
+
+    <title>
+      Priyam Srivastava — AI/ML & Data Portfolio
+    </title>
+
+    <!-- =================================================
+         FAVICON
+    ================================================= -->
+
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon.svg"
+    />
+
+    <!-- =================================================
+         OPTIONAL CANONICAL
+         
+         Replace with your final deployed domain.
+         Example:
+         https://priyamsrivastava.dev/
+    ================================================= -->
+
+    <!--
+    <link
+      rel="canonical"
+      href="https://your-domain.com/"
+    />
+    -->
+
+    <!-- =================================================
+         FONTS
+    ================================================= -->
+
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- =================================================
+         OPEN GRAPH
+    ================================================= -->
+
+    <meta
+      property="og:type"
+      content="website"
+    />
+
+    <meta
+      property="og:title"
+      content="Priyam Srivastava — AI/ML & Data Portfolio"
+    />
+
+    <meta
+      property="og:description"
+      content="Portfolio of Priyam Srivastava — AI/ML, Data Analytics, Generative AI, Agentic AI and Software Engineering."
+    />
+
+    <meta
+      property="og:image"
+      content="/og-image.png"
+    />
+
+    <meta
+      property="og:image:alt"
+      content="Priyam Srivastava — AI/ML and Data Portfolio"
+    />
+
+    <meta
+      property="og:site_name"
+      content="Priyam Srivastava Portfolio"
+    />
+
+    <meta
+      property="og:locale"
+      content="en_US"
+    />
+
+    <!-- =================================================
+         TWITTER / X CARD
+    ================================================= -->
+
+    <meta
+      name="twitter:card"
+      content="summary_large_image"
+    />
+
+    <meta
+      name="twitter:title"
+      content="Priyam Srivastava — AI/ML & Data Portfolio"
+    />
+
+    <meta
+      name="twitter:description"
+      content="AI/ML, Data Analytics, Generative AI, Agentic AI and Software Engineering portfolio."
+    />
+
+    <meta
+      name="twitter:image"
+      content="/og-image.png"
+    />
+
+    <!-- =================================================
+         THEME INITIALIZATION
+         
+         IMPORTANT:
+         Light mode is ALWAYS the default.
+         
+         Dark mode is only enabled when the user
+         explicitly selected it previously.
+    ================================================= -->
+
+    <script>
+      (() => {
+        try {
+          const savedTheme =
+            localStorage.getItem("portfolio-theme");
+
+          document.documentElement.dataset.theme =
+            savedTheme === "dark"
+              ? "dark"
+              : "light";
+        } catch {
+          document.documentElement.dataset.theme =
+            "light";
+        }
+      })();
+    </script>
+
+    <!-- =================================================
+         INITIAL LOADER
+    ================================================= -->
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100%;
+        background: #f7f8fc;
+      }
+
+      html[data-theme="dark"],
+      html[data-theme="dark"] body {
+        background: #050816;
+      }
+
+      /* ===============================================
+         LOADER
+      =============================================== */
+
+      #app-loader {
+        position: fixed;
+        inset: 0;
+
+        z-index: 99999;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 24px;
+
+        box-sizing: border-box;
+
+        background: #f7f8fc;
+
+        transition:
+          opacity 0.6s ease,
+          visibility 0.6s ease;
+      }
+
+      html[data-theme="dark"] #app-loader {
+        background: #050816;
+      }
+
+      #app-loader.hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      .loader-box {
+        width: min(420px, 80vw);
+      }
+
+      .loader-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 24px;
+
+        margin-bottom: 14px;
+
+        color: #64748b;
+
+        font-family:
+          "JetBrains Mono",
+          monospace;
+
+        font-size: 10px;
+        font-weight: 500;
+
+        line-height: 1.4;
+
+        letter-spacing: 0.16em;
+
+        text-transform: uppercase;
+      }
+
+      .loader-name {
+        color: #111827;
+      }
+
+      html[data-theme="dark"] .loader-name {
+        color: #f8fafc;
+      }
+
+      .loader-line {
+        position: relative;
+
+        width: 100%;
+        height: 2px;
+
+        overflow: hidden;
+
+        background: #dce3ec;
+      }
+
+      html[data-theme="dark"] .loader-line {
+        background: rgba(255, 255, 255, 0.12);
+      }
+
+      .loader-line::after {
+        content: "";
+
+        position: absolute;
+
+        top: 0;
+        left: 0;
+
+        width: 35%;
+        height: 100%;
+
+        background:
+          linear-gradient(
+            90deg,
+            #0891b2,
+            #3157d5,
+            #6d4aff
+          );
+
+        animation:
+          loaderMove
+          1.2s
+          ease-in-out
+          infinite;
+      }
+
+      @keyframes loaderMove {
+        from {
+          transform: translateX(-150%);
+        }
+
+        to {
+          transform: translateX(400%);
+        }
+      }
+
+      /* ===============================================
+         REDUCED MOTION
+      =============================================== */
+
+      @media (prefers-reduced-motion: reduce) {
+        .loader-line::after {
+          animation: none;
+          transform: translateX(0);
+        }
+
+        #app-loader {
+          transition: none;
+        }
+      }
+
+      /* ===============================================
+         SMALL SCREENS
+      =============================================== */
+
+      @media (max-width: 480px) {
+        .loader-box {
+          width: min(360px, 86vw);
+        }
+
+        .loader-meta {
+          font-size: 9px;
+          letter-spacing: 0.12em;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- =================================================
+         INITIAL APPLICATION LOADER
+    ================================================= -->
+
+    <div
+      id="app-loader"
+      aria-hidden="true"
+    >
+      <div class="loader-box">
+        <div class="loader-meta">
+          <span class="loader-name">
+            PRIYAM / PORTFOLIO
+          </span>
+
+          <span>
+            LOADING
+          </span>
+        </div>
+
+        <div class="loader-line"></div>
+      </div>
+    </div>
+
+    <!-- =================================================
+         REACT ROOT
+    ================================================= -->
+
+    <div id="root"></div>
+
+    <!-- =================================================
+         NOSCRIPT FALLBACK
+    ================================================= -->
+
+    <noscript>
+      <div
+        style="
+          min-height:100vh;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          padding:40px;
+          box-sizing:border-box;
+          background:#f7f8fc;
+          color:#111827;
+          font-family:Arial,sans-serif;
+          text-align:center;
+        "
+      >
+        JavaScript is required to view
+        this portfolio.
+      </div>
+    </noscript>
+
+    <!-- =================================================
+         VITE / REACT ENTRY
+    ================================================= -->
+
+    <script
+      type="module"
+      src="/src/main.jsx"
+    ></script>
+
+    <!-- =================================================
+         REMOVE INITIAL LOADER
+    ================================================= -->
+
+    <script>
+      window.addEventListener("load", () => {
+        const loader =
+          document.getElementById("app-loader");
+
+        if (!loader) {
+          return;
+        }
+
+        window.setTimeout(() => {
+          loader.classList.add("hidden");
+
+          window.setTimeout(() => {
+            loader.remove();
+          }, 650);
+        }, 500);
+      });
+    </script>
+  </body>
+</html>
