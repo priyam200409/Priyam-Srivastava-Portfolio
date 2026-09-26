@@ -2,7 +2,7 @@
 
 > Personal portfolio website showcasing my work across Artificial Intelligence, Machine Learning, Data Analytics, Generative AI, and software development.
 
-##Portfolio Live Link: priyam-srivastava-portfolio.vercel.app
+**Portfolio Live Link**: https://priyam-srivastava-portfolio.vercel.app/
 
 ## Overview
 
